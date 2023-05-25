@@ -23,7 +23,7 @@ For partial data retrieval use the following format with 0s or 1s for parameters
 - cfgrib
 
 ## Other details
-The data files used are ```gfswave.t18z.global.0p16.f000.grib2``` and ```gdas.t18z.pgrb2.1p00.f000```, which are obtained from NOAA's NOMADS website.
+The data files used are ```gfswave.t18z.global.0p16.f000.grib2``` and ```gdas.t18z.pgrb2.1p00.f000```, which are obtained from NOAA's NOMADS website.<br>
 The Python API itself can be used by-
  ```python
  from wwstread import wwst
