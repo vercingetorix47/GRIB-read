@@ -3,8 +3,6 @@ from scipy.spatial.distance import cdist
 import json
 
 class wwst:
-    #gfswave_df = pd.DataFrame()
-    #gdas_df = pd.DataFrame()
     gfswave_points=[]
     gdas_points=[]
     closest_gfswave_points=None
@@ -20,12 +18,10 @@ class wwst:
         self.gfswave_df = ds.to_dataframe()
         lat_gfswave=[]
         lon_gfswave=[]
-        #ord_gfswave=[]
         for i in self.gfswave_df.index:
             x,y,z = i
             lat_gfswave.append(x)
             lon_gfswave.append(y)
-            #ord_gfswave.append(z)
         self.gfswave_points = [(x, y) for x,y in zip(lat_gfswave, lon_gfswave)]
         self.closest_gfswave_points=None
         self.gfswave_df.reset_index()
@@ -103,10 +99,6 @@ class wwst:
             self.closest_gfswave_points=self.closest_point((lat,long),list(self.gfswave_points))
         return self.gdas_df.iloc[self.closest_gdas_points[0]]['t']
     def return_json_payload(self,lat,long):
-#        if self.closest_gfswave_points==None:
-#            self.closest_gfswave_points=self.closest_point((lat,long),list(self.gfswave_points))
-#        if self.closest_gdas_points==None:
-#            self.closest_gdas_points=self.closest_point((lat,long),list(self.gdas_points))
         if self.current_point!=(lat,long):
             self.closest_gfswave_points=self.closest_point((lat,long),list(self.gfswave_points))
             self.closest_gdas_points=self.closest_point((lat,long),list(self.gdas_points))
