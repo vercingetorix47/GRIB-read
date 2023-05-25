@@ -1,14 +1,20 @@
 # GRIB-read
-wwstread.py has an API that can be used to load GFS Wave and GDAS grib files to retrieve the following parameters:
+## DOCKER IMAGE USAGE
+All dependencies are already installed onto docker image, as well a copy of this repo (sans the image obviously). Run 'Grib read main.py' to start flask server at http://127.0.0.1:5000/  <br>
+The following data parameters can be retrieved from the API - 
 - Wind direction - wdir
 - Wind speed - ws
 - Wave direction - wvdir
-- Wave height - shww
-- Wave period - mpww
+- Wave height - wvht
+- Wave period - wpd
 - Swell direction - swdir
-- Swell height - swell
-- Swell period - swper
-- Air temperature - t
+- Swell height - swht
+- Swell period - swpd
+- Air temperature - temp
+
+<br>These can either be retrieved as a full json payload, or a partial json payload.<br>
+For a full payload, pass lat and lon as parameters to server address like so - <a href='http://127.0.0.1:5000/full/0/0'>http://127.0.0.1:5000/full/[lat]/[lon]</a> <br>
+For partial data retrieval use the following format with 0s or 1s for parameters other than lat or lon - <a href='http://127.0.0.1:5000/partial/0/0/1/1/1/1/1/1/1/1/1'>http://127.0.0.1:5000/partial/[lat]/[lon]/[wdir]/[ws]/[wvdir]/[wvht]/[wpd]/[swdir]/[swht]/[swpd]/[temp]</a> <br>
 
 ## Dependencies
 - xarray
@@ -16,11 +22,9 @@ wwstread.py has an API that can be used to load GFS Wave and GDAS grib files to 
 - ecCodes - https://confluence.ecmwf.int/display/ECC/ecCodes+installation
 - cfgrib
 
-## Usage
-'Grib read main.py' can be used to specify the location of your files (either by setting the default location within the file or through the input prompt at runtime) and try out the basic functionailty of this API. Right now, it will call the API, load the data, retrieve the parameters mentioned above, package it into a json payload and print it.
-![image](https://github.com/vercingetorix47/GRIB-read/assets/57217002/3e0e5d26-851e-453f-ba7f-7ab2a7c09768)
-
-The API itself can be used by-
+## Other details
+The data files used are ```gfswave.t18z.global.0p16.f000.grib2``` and ```gdas.t18z.pgrb2.1p00.f000```, which are obtained from NOAA's NOMADS website.
+The Python API itself can be used by-
  ```python
  from wwstread import wwst
  ```
