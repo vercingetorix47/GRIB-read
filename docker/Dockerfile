@@ -15,3 +15,4 @@ RUN make
 RUN ctest
 RUN make install
 ENV ECCODES_DIR="/GRIB-read/eccodes"
+CMD ["python3", "'Grib read main.py'"]
