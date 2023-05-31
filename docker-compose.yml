@@ -1,24 +1,6 @@
 services:
-  naughty_taussig:
-    command:
-      - "/bin/bash"
-    container_name: "naughty_taussig"
-    environment:
-      - "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
-    hostname: "0153829c2f30"
-    image: "00ede223809a"
-    ipc: "private"
-    labels:
-      org.opencontainers.image.ref.name: "ubuntu"
-      org.opencontainers.image.version: "22.04"
-    logging:
-      driver: "json-file"
-      options: {}
-    mac_address: "02:42:ac:11:00:02"
-    network_mode: "bridge"
+  web:
+    image: vercingetorix47/grib_read
     ports:
-      - "5000:5000/tcp"
-    stdin_open: yes
-    tty: yes
-    working_dir: "/GRIB-read"
-version: "3.6"
+      - "5000:5000"
+    working_dir: /GRIB-read
