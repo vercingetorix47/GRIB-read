@@ -5,7 +5,7 @@ RUN apt-get install -y libaec-dev
 RUN apt install -y gfortran
 RUN git clone https://github.com/vercingetorix47/GRIB-read.git
 WORKDIR /GRIB-read
-cd /GRIB-READ
+RUN cd /GRIB-read
 RUN pip3 install -r requirements.txt
 RUN wget https://confluence.ecmwf.int/download/attachments/45757960/eccodes-2.30.0-Source.tar.gz
 RUN tar -xzf  eccodes-2.30.0-Source.tar.gz
@@ -15,4 +15,5 @@ RUN make
 RUN ctest
 RUN make install
 ENV ECCODES_DIR="/GRIB-read/eccodes"
+RUN cd /GRIB-read
 CMD ["python3", "'Grib read main.py'"]
