@@ -1,11 +1,12 @@
 # GRIB-read
 ## DOCKER IMAGE USAGE
-DOWNLOAD DOCKER IMAGE USING - ```docker pull vercingetorix47/grib_read``` <br> 
-ALTERNATIVELY, DOWNLOAD FROM https://hub.docker.com/r/vercingetorix47/grib_read <br>
+BUILD DOCKER IMAGE USING THE FOLLOWING COMMAND IN THE ```docker``` FOLDER - ```docker build --tag grib_read .``` <br>
+OR DOWNLOAD DOCKER IMAGE USING - ```docker pull vercingetorix47/grib_read``` <br> 
+OR DOWNLOAD FROM https://hub.docker.com/r/vercingetorix47/grib_read <br>
 All dependencies are already installed onto docker image, as well a copy of this repo.
 <br>
-Start the docker image using - ```docker run -i --workdir /GRIB-read -p 5000:5000 -t 00ede223809a /bin/bash```<br>
-Start the flask server by then running - ```python3 'Grib read main.py'```<br>
+Create a docker container from the image using the following command in the ```docker```folder - ```docker compose up -d```<br>
+Start/stop the container by running from the ```docker```folder - ```docker compose start'``` or  ```docker compose stop```<br>
 <br>
 The flask server starts at http://127.0.0.1:5000/  <br>
 The following data parameters can be retrieved from the API - 
