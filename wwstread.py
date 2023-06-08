@@ -96,7 +96,7 @@ class wwst:
         if self.closest_gdas_points==None:
             self.closest_gdas_points=self.closest_point((lat,long),list(self.gdas_points))
         if self.current_point!=(lat,long):
-            self.closest_gfswave_points=self.closest_point((lat,long),list(self.gfswave_points))
+            self.closest_gdas_points=self.closest_point((lat,long),list(self.gdas_points))
         return self.gdas_df.iloc[self.closest_gdas_points[0]]['t']
     def return_json_payload(self,lat,long):
         if self.current_point!=(lat,long):
