@@ -62,4 +62,4 @@ if __name__ == '__main__':
         test_object.append(wwst(gfswave_path[i],gdas_path[i]))
     load_time_end = time.perf_counter()
     print(f"Loaded data in {load_time_end - load_time_start:0.4f} seconds")
-    app.run(debug=True)
+    app.run(debug=True,host='0.0.0.0')
