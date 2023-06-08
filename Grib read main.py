@@ -10,7 +10,7 @@ gdas_path = [r"/climatedata/gdas0.grb",r"/climatedata/gdas1.grb",r"/climatedata/
      
 @app.get('/')
 def home():
-    return "Data already loaded.<br> Pass lat and lon as parameters to server address like so - <a href='http://127.0.0.1:5000/single/0/0/0'>http://127.0.0.1:5000/single/[fhr]/[lat]/[lon]</a> <br> Partial data retrieval can also be done in the following format with 0s or 1s for parameters other than lat or lon - <a href='http://127.0.0.1:5000/partial/0/0/0/1/1/1/1/1/1/1/1/1'>http://127.0.0.1:5000/partial/[fhr]/[lat]/[lon]/[wdir]/[ws]/[wvdir]/[wvht]/[wpd]/[swdir]/[swht]/[swpd]/[temp]</a>"
+    return "GFSWave and GDAS forecasts (at 0.25 deg res) for the next 6 hours loaded.<br> Pass lat and lon as parameters to server address like so - <a href='http://127.0.0.1:5000/multi/0/0'>http://127.0.0.1:5000/multi/[lat]/[lon]</a> <br>Information for each specific hour can also be fulled by setting fhr value from 0 to 5 like so - <a href='http://127.0.0.1:5000/single/0/0/0'>http://127.0.0.1:5000/single/[fhr]/[lat]/[lon]</a> <br> Further partial data retrieval can also be done in the following format with 0s or 1s for parameters other than lat or lon - <a href='http://127.0.0.1:5000/partial/0/0/0/1/1/1/1/1/1/1/1/1'>http://127.0.0.1:5000/partial/[fhr]/[lat]/[lon]/[wdir]/[ws]/[wvdir]/[wvht]/[wpd]/[swdir]/[swht]/[swpd]/[temp]</a>"
 
 @app.get('/multi/<lat>/<lon>')
 def multigrib(lat,lon):
