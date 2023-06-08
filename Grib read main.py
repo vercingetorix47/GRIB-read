@@ -22,6 +22,7 @@ def multigrib(lat,lon):
  
 @app.get('/single/<fhr>/<lat>/<lon>')
 def single_payload(fhr,lat, lon):
+    fhr = int(fhr)
     retrieve_time_start = time.perf_counter()
     json_obj = test_object[fhr].return_json_payload(float(lat),float(lon))
     retrieve_time_end = time.perf_counter()
@@ -31,6 +32,7 @@ def single_payload(fhr,lat, lon):
 @app.get('/partial/<fhr>/<lat>/<lon>/<wdir>/<ws>/<wvdir>/<shww>/<mpww>/<swdir>/<swell>/<swper>/<t>')
 def partial_payload(fhr,lat, lon, wdir=None, ws=None, wvdir=None, shww=None, mpww=None, swdir=None, swell=None, swper=None, t=None):
     dict = {}
+    fhr = int(fhr)
     lat = float(lat)
     lon = float(lon)
     if wdir=='1':
