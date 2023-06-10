@@ -4,4 +4,4 @@ services:
     ports:
       - "5000:5000"
     working_dir: /GRIB-read
-    command: python3 'Grib read main.py'
+    command: cron ; ./getgrib && python3 'Grib read main.py'
