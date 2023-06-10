@@ -7,8 +7,7 @@ OR DOWNLOAD FROM https://hub.docker.com/r/vercingetorix47/grib_read <br>
 All dependencies are already installed onto docker image, as well a copy of this repo.
 <br>
 Create a docker container from the image using the following command in the ```docker```folder - ```docker compose up```<br>
-The container can be cleaned and removed using ```docker compose down```<br>
-Start/stop the container by running from the ```docker```folder - ```docker compose start``` or  ```docker compose stop```<br>
+The container can be stopped and cleaned using ```docker compose down```<br>
 <br>
 The flask server starts at http://127.0.0.1:5000/  <br>
 The following data parameters can be retrieved from the API - 
