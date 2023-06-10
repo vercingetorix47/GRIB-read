@@ -5,4 +5,4 @@ services:
     ports:
       - "5000:5000"
     working_dir: /GRIB-read
-    command: bash -c "./getgrib && python3 'Grib read main.py'"
+    command: bash -c "cron ; ./getgrib && python3 'Grib read main.py'"
