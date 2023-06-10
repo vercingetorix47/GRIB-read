@@ -1,0 +1,25 @@
+#!/bin/sh
+rm /climatedata/*.grb
+temp=$(TZ="America/Los_Angeles" date +"%H")
+if [ "$temp" -lt "6" ]
+then
+        hr=00
+elif [ "$temp" -lt "12" ]
+then
+        hr=06
+elif [ "$temp" -lt "18" ]
+then
+        hr=12
+else
+        hr=18
+fi
+date=$(TZ="America/Los_Angeles" date +"%Y%m%d")
+for fhr in 0 1 2 3 4 5
+do
+        URLgdas="https://nomads.ncep.noaa.gov/cgi-bin/filter_gdas_0p25.pl?dir=%2Fgdas.${date}%2F${hr}%2Fatmos&file=gdas>        echo "$URLgdas"
+        curl "$URLgdas" -o /climatedata/"gdas$fhr".grb
+        sleep 1
+        URLgfs="https://nomads.ncep.noaa.gov/cgi-bin/filter_gfswave.pl?dir=%2Fgfs.${date}%2F${hr}%2Fwave%2Fgridded&file>        echo "$URLgfs"
+        curl "$URLgfs" -o /climatedata/"gfs$fhr".grb
+        sleep 1
+done
